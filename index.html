@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDHAYA KRISHNAN G - Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #4a90e2, #50e3c2);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            animation: pulse 10s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #4a90e2;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #4a90e2;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            width: 100px;
+            height: 3px;
+            background: #50e3c2;
+            display: block;
+            margin: 10px auto 0;
+        }
+
+        /* About Section */
+        #about p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2em;
+        }
+
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+        }
+
+        .project h3 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .project img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .project ul {
+            padding-left: 20px;
+        }
+
+        /* Skills Section */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .skill-category h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .skill-category img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover img {
+            transform: scale(1.2); /* Scale up on hover */
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .skill-category img {
+            animation: bounce 2s infinite;
+        }
+
+        .skill-category p {
+            text-align: center;
+            margin: 0;
+        }
+
+        /* Education and Certifications */
+        .edu-cert {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .item {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        /* Contact Section */
+        #contact p {
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        #contact a {
+            color: #4a90e2;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 80px 20px;
+            }
+
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .project img {
+                height: 150px;
+            }
+
+            .skill-category {
+                width: 100%;
+            }
+
+            .skill-category img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>UDHAYA KRISHNAN G</h1>
+        <p>Computer Science Engineer | Python Enthusiast | Aspiring Software Developer</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Detail-oriented and passionate Computer Science Engineering student with strong programming skills in Python, C++, and SQL. Recently developed a real-world console-based student record application using SQLite and Python. Eager to apply skills in a software developer role.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Student Record Management System">
+                <h3>Student Record Management System</h3>
+                <ul>
+                    <li>Developed a console-based application using Python and SQLite for managing student records (CRUD operations).</li>
+                    <li>Built database logic with sqlite3, handled user input via Python functions. Created real-world use case of structured data storage and dynamic user interaction.</li>
+                </ul>
+            </div>
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Weather Info App">
+                <h3>Weather Info App</h3>
+                <ul>
+                    <li>Python script that fetches live weather data using the OpenWeatherMap API.</li>
+                    <li>User inputs city name; displays current temperature and weather.</li>
+                    <li>Integrated API and parsed JSON data.</li>
+                </ul>
+            </div>
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Simple AI Chatbot">
+                <h3>Simple AI Chatbot</h3>
+                <ul>
+                    <li>Rule-based terminal chatbot simulating basic conversations.</li>
+                    <li>Used conditionals for input handling and output generation.</li>
+                    <li>Demonstrated control logic and basic NLP techniques.</li>
+                </ul>
+            </div>
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Excel Budget Tracker">
+                <h3>Excel Budget Tracker</h3>
+                <ul>
+                    <li>Created a Python script that logs expenses in an Excel file.</li>
+                    <li>Used openpyxl to record date, category, and amount.</li>
+                    <li>Auto-creates or appends to budget.xlsx.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-list">
+            <div class="skill-category">
+                <h3>Languages</h3>
+                <img src="https://img.icons8.com/color/50/python.png" alt="Python">
+                <p>Python, C++, SQL, HTML, CSS</p>
+            </div>
+            <div class="skill-category">
+                <h3>Database</h3>
+                <img src="https://img.icons8.com/color/50/sql.png" alt="SQLite">
+                <p>SQLite</p>
+            </div>
+            <div class="skill-category">
+                <h3>Tools</h3>
+                <img src="https://img.icons8.com/color/50/visual-studio-code-2019.png" alt="VS Code">
+                <p>VS Code, IDLE</p>
+            </div>
+            <div class="skill-category">
+                <h3>Languages Spoken</h3>
+                <img src="https://img.icons8.com/color/50/language.png" alt="Languages">
+                <p>Tamil - Native<br>English - Intermediate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        <div class="edu-cert">
+            <div class="item">
+                <h3>B.E. Computer Science and Engineering</h3>
+                <p>VSB College of Engineering and Technical Campus • 2020-2024</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <div class="edu-cert">
+            <div class="item">
+                <h3>Java Programming</h3>
+                <p>Infosys Springboard • 2023</p>
+            </div>
+            <div class="item">
+                <h3>Introduction to Cloud</h3>
+                <p>IBM • 2023</p>
+            </div>
+            <div class="item">
+                <h3>Big Data</h3>
+                <p>Naan Mudhalvan • 2023</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Location: Coimbatore<br>
+        Email: <a href="mailto:krishnanudhaya75@gmail.com">krishnanudhaya75@gmail.com</a><br>
+        Phone: +916381592978<br>
+        LinkedIn: <a href="https://www.linkedin.com/in/udhaya-krishnan-g-725b3626b" target="_blank">udhaya-krishnan-g-725b3626b</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 UDHAYA KRISHNAN G. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
